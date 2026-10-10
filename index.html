@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FAF4EC">
+  <title>Entre agentes — Por dentro da orquestração de IA</title>
+  <meta name="description" content="Uma experiência interativa para entender quem coordena os agentes de IA. Explore arquiteturas, compartilhe contexto e experimente um simulador local.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Entre agentes">
+  <meta property="og:title" content="Você conversa com uma IA. Mas quem está respondendo?">
+  <meta property="og:description" content="Descubra como agentes de IA trabalham juntos. Uma experiência visual com simulador interativo, sem complicação.">
+  <meta property="og:image" content="assets/social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Entre agentes: uma solicitação, um orquestrador e três agentes especialistas conectados.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="workshop.css">
+  <script src="workshop.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="Entre agentes, início"><span class="brand-mark" aria-hidden="true">✳</span> entre<span>agentes</span><span class="brand-dot">.</span></a>
+    <nav aria-label="Navegação principal"><a href="#conceito">O conceito</a><a href="#simulador">Simulador</a><a href="#contexto">Contexto</a><a href="#comparacao">Na prática</a><a href="#construa">Construa</a></nav>
+    <a class="header-cta" href="#simulador">Explore por dentro <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="conteudo">
+    <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy"><p class="eyebrow"><span class="tiny-dot"></span> UM GUIA INTERATIVO SOBRE IA</p>
+        <h1 id="hero-title">Você conversa<br>
+com uma IA.<br>
+<span>Mas quem está<br>
+respondendo?</span></h1>
+        <p class="hero-lead">Às vezes, uma resposta tem um time por trás.<br class="desktop"> Conheça os agentes especialistas e o orquestrador que conecta tudo.</p>
+        <a class="button dark" href="#simulador">Veja os agentes em ação <span aria-hidden="true">↗</span></a>
+        <p class="micro hero-note"><span aria-hidden="true">◷</span> Explore no seu ritmo. Nenhum conhecimento prévio necessário.</p>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-top"><span class="mono">ARQUITETURA EM MOVIMENTO</span><button id="motion-toggle" class="text-button" aria-pressed="false" aria-label="Pausar animação da arquitetura">Ⅱ Pausar</button></div>
+        <div class="architecture">
+          <div class="request-bubble"><span class="avatar" aria-hidden="true">↗</span><div><small>VOCÊ</small><p>“Me ajude a resolver isso.”</p></div></div>
+          <div class="flow-line line-in" aria-hidden="true"><i></i></div>
+          <button class="orchestrator diagram-button" data-role="orchestrator"><span class="node-icon" aria-hidden="true">✳</span><span><strong>Orquestrador</strong><small>Entende · direciona · conecta</small></span><span class="node-dot" aria-hidden="true"></span></button>
+          <div class="branches" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="hero-agents">
+            <button class="agent diagram-button lilac" data-role="analyst"><span class="agent-symbol" aria-hidden="true">⌕</span><strong>Analista</strong><small>Investiga o problema</small></button>
+            <button class="agent diagram-button blue" data-role="developer"><span class="agent-symbol" aria-hidden="true">&lt;/&gt;</span><strong>Desenvolvedor</strong><small>Propõe soluções</small></button>
+            <button class="agent diagram-button green" data-role="reviewer"><span class="agent-symbol" aria-hidden="true">✓</span><strong>Revisor</strong><small>Avalia os resultados</small></button>
+          </div>
+          <div class="tool-row"><span>⌘ Dados</span><span>⌘ Código</span><span>⌘ Testes</span></div>
+        </div>
+        <div class="diagram-caption" id="role-detail" aria-live="polite"><span aria-hidden="true">↖</span> Toque em um componente para conhecer seu papel.</div>
+        <div class="visual-bottom"><span><i></i> Uma arquitetura possível</span><span>01 / VISÃO GERAL</span></div>
+      </div>
+    </section>
+    <div class="chapter-strip wrap"><span>UMA SOLICITAÇÃO.</span><span>ESPECIALIDADES DIFERENTES.</span><span>UMA RESPOSTA CONECTADA. <span aria-hidden="true">↓</span></span></div>
+
+    <section class="section wrap" id="conceito" aria-labelledby="concept-title">
+      <div class="section-head"><div><p class="eyebrow">01 / O CONCEITO</p><h2 id="concept-title">Alguém precisa<br>
+conectar as pontas.</h2></div><p>Em alguns sistemas, um único agente faz o trabalho. Em outros, especialistas dividem a tarefa. O orquestrador coordena essa colaboração.</p></div>
+      <div class="roles-grid">
+        <article class="role-card lilac"><span class="card-index">01</span><span class="large-symbol" aria-hidden="true">✳</span><h3>O orquestrador</h3><p>Recebe o pedido, escolhe um caminho, distribui contexto e reúne os resultados em uma resposta.</p><div class="card-foot">COORDENA O TRABALHO</div></article>
+        <article class="role-card blue"><span class="card-index">02</span><span class="large-symbol" aria-hidden="true">⌘</span><h3>Os agentes</h3><p>Interpretam uma tarefa e decidem como executá-la dentro de um papel, com instruções e ferramentas próprias.</p><div class="card-foot">EXECUTAM COM ESPECIALIZAÇÃO</div></article>
+        <article class="role-card green"><span class="card-index">03</span><span class="large-symbol" aria-hidden="true">⌁</span><h3>As ferramentas</h3><p>São recursos acionáveis: consultar logs, ler arquivos ou rodar testes. Não são agentes por si só.</p><div class="card-foot">DÃO ACESSO A DADOS E AÇÕES</div></article>
+      </div>
+      <p class="aside-note"><span aria-hidden="true">↳</span> Orquestração pode usar regras, um modelo de linguagem ou ambos. Especialistas podem compartilhar o mesmo modelo: a diferença está no papel, no contexto e nas permissões.</p>
+    </section>
+
+    <section class="sim-section" id="simulador" aria-labelledby="sim-title"><div class="wrap">
+      <div class="section-head"><div><p class="eyebrow">02 / O LABORATÓRIO</p><h2 id="sim-title">Um pedido seu.<br>
+Um time em ação.</h2></div><div><span class="pill"><span class="tiny-dot"></span> SIMULAÇÃO EDUCACIONAL</span><p>Escolha uma solicitação e acompanhe o caminho até a resposta. Tudo acontece no seu navegador, com cenários e dados fictícios, sem API de IA.</p></div></div>
+      <div class="simulator">
+        <div class="scenario-panel"><p class="mono panel-label">O QUE VAMOS RESOLVER?</p><div class="scenario-buttons" role="group" aria-label="Solicitações disponíveis">
+          <button data-scenario="travel" aria-pressed="true"><span aria-hidden="true">↗</span><span>Planejar uma viagem de quatro dias com orçamento limitado.</span><span aria-hidden="true">↗</span></button>
+          <button data-scenario="dinner" aria-pressed="false"><span aria-hidden="true">≋</span><span>Organizar um jantar para seis pessoas com limite de gastos.</span><span aria-hidden="true">↗</span></button>
+          <button data-scenario="game" aria-pressed="false"><span aria-hidden="true">⌘</span><span>Escolher um jogo cooperativo para os computadores dos amigos.</span><span aria-hidden="true">↗</span></button>
+        </div><div class="original-request"><span class="small-label">PEDIDO ORIGINAL · FICTÍCIO</span><p id="original-request"></p></div><p class="micro">Todos os preços, lugares, jogos e resultados são inventados. Nenhuma reserva, compra ou consulta externa é feita.</p></div>
+        <div class="simulation-stage">
+          <div class="stage-top"><span class="mono">O CAMINHO DA SOLICITAÇÃO</span><span id="sim-counter" class="micro">Pronto para começar</span></div>
+          <div class="sim-map" aria-label="Fluxo: solicitação, orquestrador, especialistas e resposta">
+            <div class="sim-node" id="sim-request"><span aria-hidden="true">↗</span> <span id="request-label">Viagem de quatro dias</span></div><div class="sim-connector" aria-hidden="true">↓</div>
+            <div class="sim-node sim-orchestrator" id="sim-orchestrator"><span aria-hidden="true">✳</span> Orquestrador <small id="routing-label">Aguardando solicitação</small></div>
+            <div class="sim-fork" aria-hidden="true"><span>↓</span><span>↓</span></div>
+            <div class="sim-workers" id="sim-workers"></div>
+            <div id="dependency-label" class="dependency-label">Orquestrador aguarda as duas estimativas</div><div id="dependent-worker" class="dependent-worker"></div>
+            <div class="sim-connector" aria-hidden="true">↓</div><div class="sim-node" id="sim-result"><span aria-hidden="true">≡</span> Resposta consolidada</div>
+          </div>
+          <div class="sim-controls"><button id="play" class="button dark">▶ Iniciar simulação</button><button id="step" class="button light" aria-label="Avançar uma etapa">Próxima etapa →</button><button id="reset" class="reset-button" aria-label="Reiniciar simulação">↺</button></div>
+        </div>
+      </div>
+      <div class="trace-panel"><ol class="steps" aria-label="Etapas da simulação"><li>Receber</li><li>Rotear</li><li>Acionar</li><li>Compartilhar</li><li>Consolidar</li></ol><div id="sim-status" class="sim-status" role="status" aria-live="polite" aria-atomic="true"><span class="status-label">NOS BASTIDORES</span><h3>Um pedido, tarefas diferentes.</h3><p>Inicie a simulação ou avance uma etapa por vez para explorar as decisões.</p></div><div id="agent-details" class="agent-details" aria-label="Contexto e resultado de cada especialista" hidden></div><div id="result-box" class="result-box" hidden></div></div>
+      <p class="micro sim-footnote">Os tempos da animação são ilustrativos, não medidas de desempenho. Sistemas reais precisam lidar também com falhas, limites de execução, validação e aprovações.</p>
+    </div></section>
+
+    <section class="section wrap" id="contexto" aria-labelledby="context-title"><div class="section-head"><div><p class="eyebrow">03 / A INFORMAÇÃO QUE VIAJA</p><h2 id="context-title">O agente só sabe<br>
+o que chega até ele.</h2></div><p>Contexto é o conjunto de instruções, dados e histórico disponível em uma execução. Os agentes não compartilham automaticamente tudo o que sabem.</p></div>
+      <div class="context-lab"><div class="context-toolbar"><span class="mono">MISSÃO: INVESTIGAR UMA FALHA NO LOGIN</span><div class="context-tabs" role="group" aria-label="Tipo de contexto"><button data-context="complete" aria-pressed="true">Completo</button><button data-context="missing" aria-pressed="false">Insuficiente</button><button data-context="excess" aria-pressed="false">Desnecessário</button></div></div>
+        <div class="context-flow"><div class="context-packet"><span class="small-label">ORQUESTRADOR ENVIA</span><h3 id="context-heading">O necessário para agir</h3><div id="context-items"></div></div><div class="context-arrow" aria-hidden="true">→</div><div class="context-outcome" aria-live="polite" aria-atomic="true"><span class="small-label">AGENTE ANALISTA RECEBE</span><div class="context-agent"><span aria-hidden="true">⌕</span> Analista de incidentes</div><h3 id="context-verdict"></h3><p id="context-description"></p><span class="outcome-tag" id="context-tag"></span></div></div>
+      </div><p class="aside-note"><span aria-hidden="true">↳</span> Completo significa suficiente para a tarefa. O transporte pode acontecer por mensagens, um estado compartilhado ou referências a arquivos, respeitando permissões e a origem dos dados.</p>
+    </section>
+
+    <section class="section comparison-section wrap" id="comparacao" aria-labelledby="compare-title"><div class="section-head"><div><p class="eyebrow">04 / AS ESCOLHAS DA ARQUITETURA</p><h2 id="compare-title">Mais agentes.<br>
+Melhor resposta?</h2></div><p>Não necessariamente. Dividir responsabilidades pode ajudar, mas cada nova conexão também tem um custo. Compare as escolhas, não apenas o número de agentes.</p></div>
+      <div class="comparison-table" role="region" aria-label="Comparação de arquiteturas"><table><caption class="sr-only">Tendências gerais; os resultados dependem da tarefa e da implementação.</caption><thead><tr><th scope="col">O que muda</th><th scope="col"><span aria-hidden="true">○</span> Agente único</th><th scope="col"><span aria-hidden="true">⌘</span> Múltiplos agentes</th></tr></thead><tbody>
+        <tr><th scope="row">Complexidade</th><td>Um fluxo para coordenar.</td><td>Roteamento, estado e dependências.</td></tr><tr><th scope="row">Especialização</th><td>Vários papéis no mesmo contexto.</td><td>Papéis e contextos separados.</td></tr><tr><th scope="row">Latência</th><td>Menos etapas de coordenação.</td><td>Paralelismo pode ajudar; repasses adicionam espera.</td></tr><tr><th scope="row">Custo</th><td>Menos sobrecarga de comunicação.</td><td>Mais chamadas e contexto podem aumentar o gasto.</td></tr><tr><th scope="row">Manutenção</th><td>Menos componentes para acompanhar.</td><td>Exige testar agentes e suas interações.</td></tr><tr><th scope="row">Comunicação</th><td>Sem repasses entre agentes, mas sujeito a perder contexto.</td><td>Risco de informação perdida, duplicada ou contraditória.</td></tr>
+      </tbody></table></div><div class="takeaway"><span aria-hidden="true">↗</span><p><strong>Comece com a arquitetura mais simples que resolve.</strong><br>
+Adicione agentes quando avaliações mostrarem um benefício que compensa a coordenação.</p></div>
+    </section>
+
+    <section class="section wrap" id="quando-usar" aria-labelledby="when-title"><div class="section-head"><div><p class="eyebrow">05 / DA IDEIA À DECISÃO</p><h2 id="when-title">O time certo<br>
+para cada tarefa.</h2></div><p>Antes de escolher um framework, entenda o problema. Abra os cenários para explorar qual abordagem pode fazer sentido.</p></div><div class="decision-list">
+      <details open><summary><span class="decision-number">01</span><span>Investigar um incidente em várias frentes</span><span class="decision-type lilac">Orquestração</span><span class="expand" aria-hidden="true">+</span></summary><div class="decision-body"><p>Logs, mudanças de código e impacto no produto podem ser investigados separadamente e reunidos depois. Especialistas ajudam quando há subtarefas independentes e critérios claros de entrega.</p><p><strong>O cuidado:</strong> manter evidências rastreáveis, resolver conclusões conflitantes e limitar tentativas. Uma resposta consolidada ainda precisa de validação.</p></div></details>
+      <details><summary><span class="decision-number">02</span><span>Resumir um documento ou tirar dúvidas</span><span class="decision-type blue">Agente único</span><span class="expand" aria-hidden="true">+</span></summary><div class="decision-body"><p>Se a tarefa cabe em um contexto e usa poucas ferramentas, um agente pode conduzir tudo. Para um resumo simples, uma única chamada ao modelo pode bastar.</p><p><strong>O cuidado:</strong> verificar se as respostas refletem o documento e se as fontes estão disponíveis.</p></div></details>
+      <details><summary><span class="decision-number">03</span><span>Aplicar regras fixas a dados estruturados</span><span class="decision-type green">Automação</span><span class="expand" aria-hidden="true">+</span></summary><div class="decision-body"><p>Validar campos obrigatórios ou gerar um relatório com uma consulta conhecida não exige decisões abertas. Um script ou fluxo determinístico costuma ser mais simples de testar.</p><p><strong>O cuidado:</strong> tratar exceções explicitamente. Se as regras já resolvem o problema, um modelo pode ser desnecessário.</p></div></details>
+    </div></section>
+
+    <section class="section wrap workshop" id="construa" aria-labelledby="workshop-title">
+      <div class="section-head"><div><p class="eyebrow">DA EXPLICAÇÃO À PRÁTICA</p><h2 id="workshop-title">Construa seu primeiro orquestrador</h2></div><p>Comece com duas funções e uma tarefa conhecida. Entenda a coordenação antes de conectar um modelo de IA.</p></div>
+      <nav class="workshop-nav" aria-label="Etapas da jornada prática"><a href="#kit">01 · O necessário</a><a href="#montar">02 · Monte o fluxo</a><a href="#python">03 · Use Python</a><a href="#custos">04 · Local ou API?</a></nav>
+
+      <div class="workshop-part" id="kit"><p class="eyebrow">01 / O QUE É NECESSÁRIO?</p><h3>Quatro peças. Papéis diferentes.</h3>
+        <div class="workshop-concepts"><article class="lilac"><h4>Modelo de IA</h4><p>Recebe uma entrada e gera uma saída. É o motor de linguagem, não o fluxo inteiro.</p></article><article class="blue"><h4>Agente</h4><p>Usa um modelo, instruções e contexto para decidir ações dentro de um papel. Pode acionar ferramentas.</p></article><article class="green"><h4>Ferramenta</h4><p>Executa uma operação: somar preços, consultar um arquivo ou buscar dados.</p></article><article class="lilac"><h4>Orquestrador</h4><p>Define quem trabalha, em qual ordem e com quais informações. Reúne os retornos.</p></article></div>
+        <p class="workshop-note">Você não precisa instalar tudo. Para começar abaixo, basta <strong>Python 3</strong> e um editor de texto. LangGraph e CrewAI são alternativas para organizar fluxos mais elaborados.</p>
+        <div class="workshop-tools">
+          <article><span class="small-label">LINGUAGEM</span><h4>Python</h4><p>Escreve as funções e a coordenação. É gratuito e de código aberto. O primeiro exemplo usa apenas sua biblioteca padrão.</p><a href="https://www.python.org/about/">Sobre o Python ↗</a><a href="https://docs.python.org/3/tutorial/">Tutorial oficial ↗</a></article>
+          <article><span class="small-label">FLUXOS E ESTADO</span><h4>LangGraph</h4><p>Organiza etapas, conexões e dados compartilhados. A biblioteca é de código aberto; modelos e serviços de hospedagem podem ter custos separados.</p><a href="https://docs.langchain.com/oss/python/langgraph/overview">Documentação oficial ↗</a><a href="https://github.com/langchain-ai/langgraph">Código e licença ↗</a></article>
+          <article><span class="small-label">PAPÉIS E TAREFAS</span><h4>CrewAI</h4><p>Oferece estruturas para agentes, tarefas e equipes. O framework aberto pode ser usado gratuitamente; serviços gerenciados e APIs são cobrados separadamente.</p><a href="https://docs.crewai.com/en/introduction">Documentação oficial ↗</a><a href="https://github.com/crewAIInc/crewAI">Código e licença ↗</a></article>
+          <article><span class="small-label">MODELO NA NUVEM</span><h4>Gemini API</h4><p>Acessa modelos do Google pela internet. Há uma faixa gratuita para modelos e regiões elegíveis, com limites. O uso faturado pode gerar custos.</p><a href="https://ai.google.dev/gemini-api/docs/quickstart">Primeiros passos ↗</a><a href="https://ai.google.dev/gemini-api/docs/pricing">Condições e cobrança ↗</a></article>
+          <article><span class="small-label">MODELO LOCAL</span><h4>Ollama</h4><p>Executa modelos no computador. O uso local não cobra por chamada, mas consome hardware e energia. Modelos têm licenças próprias; a oferta de nuvem é separada.</p><a href="https://docs.ollama.com/quickstart">Documentação oficial ↗</a><a href="https://ollama.com/pricing">Opções de uso ↗</a></article>
+        </div>
+      </div>
+
+      <div class="workshop-part" id="montar"><p class="eyebrow">02 / MONTE UM FLUXO SEM PROGRAMAÇÃO</p><h3>Um jantar, dois especialistas e você no controle.</h3><p>Defina o pedido e avance. Toque em cada componente para explorar sua responsabilidade, as instruções e os dados recebidos.</p>
+        <div class="workshop-lab"><div class="workshop-config"><span class="pill">SIMULAÇÃO LOCAL · SEM IA REAL</span><div class="workshop-fields"><label>Convidados<select id="build-people"><option value="2">2 pessoas</option><option value="4">4 pessoas</option><option value="6" selected>6 pessoas</option><option value="8">8 pessoas</option></select></label><label>Limite do jantar<select id="build-limit"><option value="100">R$ 100</option><option value="180" selected>R$ 180</option><option value="240">R$ 240</option></select></label><label class="workshop-check"><input type="checkbox" id="build-veggie" checked> Há uma pessoa vegetariana</label></div><p class="micro">Valores fictícios por pessoa: massa R$ 20 ou frango R$ 25; bebidas R$ 5. Ao mudar o pedido, o fluxo recomeça.</p></div>
+          <div class="workshop-flow"><div class="workshop-map"><button class="workshop-node lilac" data-build-role="coordinator" aria-pressed="true"><strong>✳ Orquestrador</strong><small>Recebe, encaminha e reúne</small></button><span class="workshop-arrow" id="build-link" aria-hidden="true">↓ Envia o pedido</span><div class="workshop-specialists"><button class="workshop-node blue" data-build-role="menu" aria-pressed="false"><strong>Cardápio</strong><small id="build-menu-state">Aguarda contexto</small></button><span class="workshop-arrow" aria-hidden="true">→</span><button class="workshop-node green" data-build-role="budget" aria-pressed="false"><strong>Orçamento</strong><small id="build-budget-state">Aguarda cardápio</small></button></div><p class="micro">O orquestrador repassa o cardápio ao orçamento. A conta depende das estimativas.</p><div class="workshop-controls"><button id="build-next" class="button dark">Iniciar fluxo →</button><button id="build-reset" class="button light">Reiniciar</button></div><p id="build-status" class="workshop-status" role="status" aria-live="polite">Pronto. O pedido será recebido pelo orquestrador.</p></div>
+            <div class="workshop-inspector"><span class="small-label">INSPECIONE UM COMPONENTE</span><h4 id="build-role-title">Orquestrador</h4><dl><dt>Responsabilidade</dt><dd id="build-responsibility"></dd><dt>Instrução</dt><dd id="build-instruction"></dd><dt>Informações recebidas</dt><dd id="build-context"></dd><dt>Resultado devolvido</dt><dd id="build-return"></dd></dl></div>
+          </div><div id="build-result" class="workshop-result" role="status" hidden></div>
+        </div>
+      </div>
+
+      <div class="workshop-part" id="python"><p class="eyebrow">03 / CRIE SEU PRIMEIRO ORQUESTRADOR COM PYTHON</p><h3>Primeiro a coordenação. Depois o modelo.</h3><p>No exemplo inicial, “especialistas” são funções com regras fixas. O código é funcional, mas <strong>não contém agentes de IA</strong>: serve para aprender a dividir o trabalho e transmitir resultados.</p>
+        <div class="workshop-code-switch" role="group" aria-label="Versão do exemplo Python"><button data-code-version="basic" aria-pressed="true">1. Sem IA · execute agora</button><button data-code-version="model" aria-pressed="false">2. Com modelo · ambiente local</button></div>
+        <div id="code-basic" class="workshop-code-panel"><ol class="workshop-instructions"><li>Instale <a href="https://www.python.org/downloads/">Python 3 pelo site oficial</a>.</li><li>Baixe o arquivo abaixo e abra um terminal na pasta onde o salvou.</li><li>Execute <code>python jantar.py</code>. No macOS/Linux, use <code>python3</code> se necessário.</li></ol><div class="workshop-code-head"><span class="mono">JANTAR.PY · EXECUTÁVEL SEM IA</span><div><button class="text-button" data-copy-code="basic-code">Copiar código</button><a href="examples/jantar.py" download>Baixar .py ↓</a></div></div><pre tabindex="0" aria-label="Código Python funcional sem IA"><code id="basic-code">&quot;&quot;&quot;Fluxo funcional sem IA. Valores em reais inteiros, todos fictícios.&quot;&quot;&quot;
+import json
+
+
+def cardapio(contexto):
+    &quot;&quot;&quot;Especialista 1: recebe convidados e preferência, não o pedido inteiro.&quot;&quot;&quot;
+    pessoas = contexto[&quot;pessoas&quot;]
+    vegetariano = contexto[&quot;vegetariano&quot;]
+    return {
+        &quot;prato&quot;: &quot;Massa com tomate&quot; if vegetariano else &quot;Frango com arroz&quot;,
+        &quot;comida&quot;: pessoas * (20 if vegetariano else 25),
+        &quot;bebidas&quot;: pessoas * 5,
+    }
+
+
+def orcamento(plano, limite):
+    &quot;&quot;&quot;Especialista 2: depende do plano e usa uma soma como ferramenta.&quot;&quot;&quot;
+    total = sum([plano[&quot;comida&quot;], plano[&quot;bebidas&quot;]])
+    return {&quot;total&quot;: total, &quot;saldo&quot;: limite - total, &quot;cabe&quot;: total &lt;= limite}
+
+
+def validar(pedido):
+    if type(pedido[&quot;pessoas&quot;]) is not int or pedido[&quot;pessoas&quot;] &lt; 1:
+        raise ValueError(&quot;Informe um número inteiro positivo de pessoas.&quot;)
+    if type(pedido[&quot;limite&quot;]) is not int or pedido[&quot;limite&quot;] &lt; 0:
+        raise ValueError(&quot;O limite deve ser um inteiro não negativo.&quot;)
+    if type(pedido[&quot;vegetariano&quot;]) is not bool:
+        raise ValueError(&quot;Vegetariano deve ser True ou False.&quot;)
+
+
+def orquestrar(pedido):
+    &quot;&quot;&quot;Coordena a ordem, distribui contexto e reúne os dois resultados.&quot;&quot;&quot;
+    validar(pedido)
+    contexto = {&quot;pessoas&quot;: pedido[&quot;pessoas&quot;],
+                &quot;vegetariano&quot;: pedido[&quot;vegetariano&quot;]}
+    plano = cardapio(contexto)
+    # Esta chamada só acontece depois de obter as estimativas do cardápio.
+    conta = orcamento(plano, pedido[&quot;limite&quot;])
+    return {&quot;cardapio&quot;: plano, &quot;orcamento&quot;: conta}
+
+
+if __name__ == &quot;__main__&quot;:
+    pedido = {&quot;pessoas&quot;: 6, &quot;limite&quot;: 180, &quot;vegetariano&quot;: True}
+    print(json.dumps(orquestrar(pedido), ensure_ascii=False, indent=2))
+</code></pre><div class="workshop-expected"><span class="small-label">O QUE VOCÊ DEVE VER</span><p>Com o pedido do arquivo: massa com tomate, comida R$ 120, bebidas R$ 30, total R$ 150, saldo R$ 30 e <code>cabe: true</code>. A saída é um dicionário em formato JSON.</p><p>Troque <code>limite</code> por <code>100</code>: o total continua R$ 150, mas o saldo vira −R$ 50 e <code>cabe</code> fica <code>false</code>. O orquestrador deve mostrar o limite excedido, não esconder a diferença.</p></div></div>
+        <div id="code-model" class="workshop-code-panel" hidden><div class="workshop-expected"><span class="small-label">CÓDIGO FUNCIONAL · REQUER OLLAMA E UM MODELO LOCAL</span><p>Agora o modelo escolhe o prato e comenta a conta em duas chamadas separadas. As funções assumem papéis de especialistas, mas o fluxo ainda é fixo: não há um ciclo autônomo de planejamento e uso de ferramentas.</p><p>A soma permanece em Python. O retorno do cardápio é validado; o comentário do modelo precisa de revisão e pode estar errado.</p></div><ol class="workshop-instructions"><li>Mantenha <a href="examples/jantar.py" download>jantar.py</a> e <a href="examples/jantar_ollama.py" download>jantar_ollama.py</a> na mesma pasta.</li><li><a href="https://docs.ollama.com/quickstart">Instale e abra o Ollama</a>. Em instalações sem serviço ativo, execute <code>ollama serve</code> em outro terminal.</li><li>Baixe o modelo com <code>ollama pull llama3.2:1b</code>. Confira a <a href="https://ollama.com/library/llama3.2:1b">licença e a ficha do modelo</a>. O download ocupa disco; a execução usa memória e pode ser lenta.</li><li>Execute <code>python jantar_ollama.py</code>. A resposta vem do modelo local e pode variar. Se houver erro, o programa interrompe e explica como verificar o ambiente.</li></ol><div class="workshop-code-head"><span class="mono">JANTAR_OLLAMA.PY · INTEGRAÇÃO OPCIONAL</span><div><button class="text-button" data-copy-code="model-code">Copiar código</button><a href="examples/jantar_ollama.py" download>Baixar .py ↓</a></div></div><pre tabindex="0" aria-label="Código Python para executar com Ollama local"><code id="model-code">&quot;&quot;&quot;Evolução local com duas chamadas reais ao Ollama, quando instalado.
+
+Salve junto de jantar.py. Execute: python jantar_ollama.py
+Não é um agente autônomo: a sequência continua definida pelo código.
+&quot;&quot;&quot;
+import json
+import sys
+from urllib.error import URLError
+from urllib.request import Request, urlopen
+from jantar import cardapio, orcamento, validar
+
+MODELO = &quot;llama3.2:1b&quot;  # Baixe antes: ollama pull llama3.2:1b
+ENDERECO = &quot;http://127.0.0.1:11434/api/chat&quot;
+
+
+def consultar(instrucoes, contexto, formato=None):
+    &quot;&quot;&quot;Acesso ao modelo local; nenhuma chave ou pacote Python é necessário.&quot;&quot;&quot;
+    dados = {
+        &quot;model&quot;: MODELO,
+        &quot;stream&quot;: False,
+        &quot;messages&quot;: [
+            {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: instrucoes},
+            {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: json.dumps(contexto)},
+        ],
+    }
+    if formato:
+        dados[&quot;format&quot;] = formato
+    requisicao = Request(ENDERECO, data=json.dumps(dados).encode(&quot;utf-8&quot;),
+                         headers={&quot;Content-Type&quot;: &quot;application/json&quot;})
+    with urlopen(requisicao, timeout=180) as resposta:
+        texto = json.load(resposta)[&quot;message&quot;][&quot;content&quot;]
+    if not isinstance(texto, str) or not texto.strip():
+        raise ValueError(&quot;O modelo não devolveu texto utilizável.&quot;)
+    return texto
+
+
+def agente_cardapio(contexto):
+    formato = {&quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: {
+        &quot;prato&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;enum&quot;: [&quot;massa&quot;, &quot;frango&quot;]}},
+        &quot;required&quot;: [&quot;prato&quot;], &quot;additionalProperties&quot;: False}
+    texto = consultar(
+        &quot;Escolha massa ou frango. Se vegetariano for true, escolha massa. &quot;
+        &quot;Responda em JSON com apenas a chave prato.&quot;, contexto, formato)
+    escolha = json.loads(texto)
+    if not isinstance(escolha, dict):
+        raise ValueError(&quot;O modelo deve devolver um objeto JSON.&quot;)
+    prato = escolha.get(&quot;prato&quot;)
+    if prato not in (&quot;massa&quot;, &quot;frango&quot;):
+        raise ValueError(&quot;Prato fora do catálogo fictício.&quot;)
+    if contexto[&quot;vegetariano&quot;] and prato != &quot;massa&quot;:
+        raise ValueError(&quot;A resposta ignorou a preferência vegetariana.&quot;)
+    # Os preços continuam nas regras locais, não são inventados pelo modelo.
+    return cardapio({&quot;pessoas&quot;: contexto[&quot;pessoas&quot;],
+                     &quot;vegetariano&quot;: prato == &quot;massa&quot;})
+
+
+def agente_orcamento(plano, limite):
+    conta = orcamento(plano, limite)  # Ferramenta determinística faz a conta.
+    comentario = consultar(
+        &quot;Explique em uma frase se o plano cabe, usando o campo cabe. &quot;
+        &quot;Não acrescente preços nem altere valores. Responda em português.&quot;,
+        {&quot;plano&quot;: plano, &quot;limite&quot;: limite, &quot;conta_verificada&quot;: conta})
+    return {**conta, &quot;comentario_do_modelo_para_revisar&quot;: comentario}
+
+
+def orquestrar_com_modelo(pedido):
+    validar(pedido)
+    plano = agente_cardapio({&quot;pessoas&quot;: pedido[&quot;pessoas&quot;],
+                            &quot;vegetariano&quot;: pedido[&quot;vegetariano&quot;]})
+    conta = agente_orcamento(plano, pedido[&quot;limite&quot;])
+    return {&quot;cardapio&quot;: plano, &quot;orcamento&quot;: conta}
+
+
+if __name__ == &quot;__main__&quot;:
+    try:
+        pedido = {&quot;pessoas&quot;: 6, &quot;limite&quot;: 180, &quot;vegetariano&quot;: True}
+        print(json.dumps(orquestrar_com_modelo(pedido),
+                         ensure_ascii=False, indent=2))
+    except (URLError, TimeoutError, OSError, ValueError, KeyError, TypeError) as erro:
+        print(f&quot;Execução interrompida: {erro}&quot;, file=sys.stderr)
+        print(&quot;Confira o Ollama aberto e o modelo baixado. &quot;
+              &quot;Se o retorno for inválido, revise-o antes de tentar novamente.&quot;,
+              file=sys.stderr)
+        sys.exit(1)
+</code></pre><p class="workshop-note">A página apenas mostra e oferece o código. Ela não executa Python nem chama seu Ollama. O exemplo usa o endpoint oficial <a href="https://docs.ollama.com/api/chat">/api/chat</a>; a escolha estruturada segue a documentação de <a href="https://docs.ollama.com/capabilities/structured-outputs">saídas estruturadas</a>.</p></div>
+        <p id="code-copy-status" class="micro" role="status" aria-live="polite"></p>
+        <details class="workshop-next"><summary>Como evoluir para agentes mais autônomos? <span aria-hidden="true">+</span></summary><p>Adicione uma decisão do modelo sobre qual ferramenta usar, valide seus argumentos e devolva o resultado ao modelo. Limite as repetições e registre o que ocorreu. Em LangGraph, etapas e dependências podem virar nós e conexões; em CrewAI, papéis e tarefas organizam a colaboração.</p><p><strong>Não basta renomear uma função como agente.</strong> Defina quais decisões o modelo pode tomar, quais operações exigem aprovação e como você vai verificar a resposta. Comece avaliando poucos casos conhecidos.</p></details>
+      </div>
+
+      <div class="workshop-part" id="custos"><p class="eyebrow">04 / GRATUITO OU PAGO?</p><h3>O software pode ser gratuito. A execução tem limites.</h3>
+        <div class="comparison-table"><table><caption class="sr-only">Comparação entre modelos locais e APIs na nuvem</caption><thead><tr><th scope="col">Na prática</th><th scope="col">Local · Ollama</th><th scope="col">API · Gemini</th></tr></thead><tbody><tr><th scope="row">Começar</th><td>Instalar e baixar um modelo com licença adequada ao uso.</td><td>Criar acesso à API e guardar a chave no ambiente que executa o programa.</td></tr><tr><th scope="row">Custo</th><td>Sem tarifa por chamada local; há energia, disco e eventual compra de hardware.</td><td>Faixa gratuita elegível com cotas; modalidade paga cobra conforme modelo e uso.</td></tr><tr><th scope="row">Limites</th><td>Memória, velocidade, tamanho do modelo e janela de contexto.</td><td>Limites por projeto, modelo e categoria de uso; excesso de cota pode bloquear pedidos.</td></tr><tr><th scope="row">Hardware</th><td>RAM e espaço disponíveis precisam comportar o modelo. GPU compatível pode acelerar; não há uma configuração universal.</td><td>Não exige carregar o modelo no seu PC. Precisa de internet e acesso ao serviço.</td></tr><tr><th scope="row">Privacidade</th><td>Com modelo local e sem ferramentas externas, os pedidos são processados no computador. Proteja arquivos e logs.</td><td>Os dados são enviados ao provedor. Tratamento e retenção dependem dos termos, região e modalidade.</td></tr></tbody></table></div>
+        <p class="workshop-note">No Gemini, os termos distinguem serviços gratuitos e pagos, inclusive no uso de conteúdo para melhorar produtos, com exceções regionais. Não trate a faixa gratuita como ambiente para dados sensíveis. Consulte <a href="https://ai.google.dev/gemini-api/terms">os termos</a>, <a href="https://ai.google.dev/gemini-api/docs/rate-limits">as cotas</a> e <a href="https://ai.google.dev/gemini-api/docs/pricing">a cobrança vigente</a>.</p><p class="workshop-note">No Ollama, <strong>local e nuvem são modos diferentes</strong>. Confira a <a href="https://docs.ollama.com/faq">FAQ sobre dados, memória e modo somente local</a> e a <a href="https://docs.ollama.com/gpu">compatibilidade de hardware</a>. “Gratuito” não significa recursos infinitos.</p>
+      </div>
+    </section>
+
+    <section class="closing wrap" id="conclusao"><p class="eyebrow">06 / LEVE ESTA IDEIA COM VOCÊ</p><h2>Inteligência também é<br>
+saber <em>coordenar.</em></h2><p>O orquestrador organiza. Os agentes executam.<br>
+As ferramentas dão acesso. O contexto conecta tudo.</p><a class="button dark" href="#simulador">Experimente outro caminho <span aria-hidden="true">↗</span></a><div class="closing-note">O melhor sistema é aquele cuja complexidade se justifica.</div></section>
+    <section class="references wrap" aria-labelledby="references-title"><div><p class="eyebrow">PARA CONTINUAR EXPLORANDO</p><h2 id="references-title">Vá à fonte.</h2><p>Leituras técnicas em inglês que fundamentam os conceitos deste guia.</p></div><div class="reference-links"><a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer"><span><small>ANTHROPIC · 2024</small>Building effective agents</span><span aria-label="abre em nova aba">↗</span></a><a href="https://www.anthropic.com/engineering/multi-agent-research-system" target="_blank" rel="noopener noreferrer"><span><small>ANTHROPIC · 2025</small>How we built our multi-agent research system</span><span aria-label="abre em nova aba">↗</span></a><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer"><span><small>ANTHROPIC · 2025</small>Effective context engineering for AI agents</span><span aria-label="abre em nova aba">↗</span></a></div></section>
+  </main>
+  <footer class="footer wrap"><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">✳</span> entre<span>agentes</span><span class="brand-dot">.</span></a><p>Menos mistério. Mais entendimento.</p><a href="#inicio">Voltar ao início ↑</a></footer>
+  <noscript><div class="noscript">O conteúdo pode ser lido sem JavaScript. Ative-o para usar o simulador e os exemplos de contexto.</div></noscript>
+</body>
+</html>
